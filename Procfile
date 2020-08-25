@@ -1,1 +1,1 @@
-web: gunicorn flaskblog.wsgi
+web: gunicorn flaskblog:app
