@@ -63,8 +63,8 @@
           {% if all_posts %}
                   <p class='text-muted'>
                     <ul class="list-group">
-                      {% for post in all_posts[:4] %}
-                          <li class="list-group-item list-group-item-light"><a href="post/{{post.id}}">{{post.title}}</a></li>
+                      {% for item in all_posts[:4] %}
+                          <li class="list-group-item list-group-item-light"><a href="../post/{{item.id}}">{{item.title}}</a></li>
                       {% endfor %}
                     </ul>
                   </p>
