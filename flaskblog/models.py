@@ -1,9 +1,8 @@
 from flaskblog import db, login_manager
-from datetime import datetime, timezone
+from datetime import datetime
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 from flask import current_app
 from flask_login import UserMixin
-import pytz
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -55,7 +54,5 @@ class Comment(db.Model):
     def __repr__(self):
         return f"Comment('{self.content}', '{self.date_commented}')"
 
-
-
-def utc_to_local(utc_dt):
-    local_dt = utc_dt.replace(tzinfo=pytz.utc).astimezone(local_tz)
+def all_posts():
+    return Post.query.order_by(Post.date_posted.desc()).all()

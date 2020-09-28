@@ -16,11 +16,27 @@
       <h2 class="article-title">{{ post.title }}</h2>
       <p class="article-content">{{ post.content }}</p>
       <div>
-        <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('comments.new_comment', post_id=post.id)}}">Add comment</a>
-        <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('comments.post_comments', post_id=post.id)}}">Comments</a>
+        <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('posts.new_comment', post_id=post.id)}}">Add comment</a>
       </div>
     </div>
   </article>
+  {% if comments %}
+      <p>Comments:</p>
+      {% for comment in comments %}
+      <article class="media content-section">
+        <img class="rounded-circle article-img" src="{{ url_for('static', filename='profile_pics/' + comment.author.image_file) }}">
+        <div class="media-body">
+        <div class="article-metadata">
+          <a class="mr-2" href="{{ url_for('users.user_posts', username=comment.author.username) }}">{{ comment.author.username }}</a>
+          <small class="text-muted">{{ comment.date_commented.strftime('%Y-%m-%d %H:%M') }}</small>
+        </div>
+        <p class="article-content">{{ comment.content }}</p>
+        </div>
+      </article>
+      {% endfor %}
+  {% else %}
+      <p>No comments.</p>
+  {% endif %}
   <!-- Modal -->
   <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
