@@ -29,7 +29,7 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #fafafa;
   padding: 10px 20px;
   border: 1px solid #dddddd;
-  border-radius: 3px;
+  border-radius: 10px;
   margin-bottom: 20px;
 }
 
@@ -84,4 +84,9 @@ a.article-title:hover {
 .about-section {
   text-align: center;
   padding-bottom: 20px;
+}
+
+.media-body {
+  overflow: hidden;
+  padding-left:20px;
 }
