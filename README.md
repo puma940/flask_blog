@@ -14,7 +14,7 @@ The application was placed on the Heroku server.
 
 Functionality:
 - creating a user account, changing data, restoring a password
-- adding posts, editing posts by the author, commenting on posts
+- adding posts, editing and deleting posts by the author, commenting on posts
 - displaying sorted posts, pagination
 
 ![Flaskblog screenshot](./flaskblog.PNG)
